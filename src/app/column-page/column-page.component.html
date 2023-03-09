@@ -1,0 +1,34 @@
+<h3><a href="/board-page"><ng-container i18n>Projekty</ng-container></a> -&gt; {{ board.title }}</h3>
+<p *ngIf="message.isPresent()" class="{{ message.type }}">{{ message }}</p>
+<input type="text" matInput [(ngModel)]="title" />
+<app-button i18n-text text="Dodaj" icon="add" (click)="onColumnCreate()"></app-button>
+<mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let column of columns">
+        <mat-card>
+            <mat-card-header>
+                <input type="text" matInput [(ngModel)]="column.title" />
+                <app-button icon="arrow_backward" (click)="onColumnDecrementOrder(column)"></app-button>
+                <app-button icon="arrow_forward" (click)="onColumnIncrementOrder(column)"></app-button>
+            </mat-card-header>
+            <mat-card-actions>
+                <app-button i18n-text text="Dodaj zadanie" icon="add" (click)="onTaskCreate(column)"></app-button>
+                <app-button i18n-text text="Aktualizuj" icon="mode_edit" (click)="onColumnUpdate(column)"></app-button>
+                <app-button i18n-text text="Usuń" icon="clear" (click)="onColumnDelete(column)"></app-button>
+            </mat-card-actions>
+            <mat-card-content>
+                <div *ngFor="let task of column.tasks">
+                    <input type="text" matInput [(ngModel)]="task.title" />
+                    <select [(ngModel)]="task.userId">
+                        <option *ngFor="let user of users" [value]="user._id">{{ user.name }}</option>
+                    </select>
+                    <app-button icon="arrow_upward" (click)="onTaskDecrementOrder(task)"></app-button>
+                    <app-button icon="arrow_downward" (click)="onTaskIncrementOrder(task)"></app-button>
+                    <app-button icon="arrow_backward" (click)="onTaskMoveToLeft(task)"></app-button>
+                    <app-button icon="arrow_forward" (click)="onTaskMoveToRight(task)"></app-button>
+                    <app-button icon="mode_edit" (click)="onTaskUpdate(task)"></app-button>
+                    <app-button icon="clear" (click)="onTaskDelete(task)"></app-button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,30 @@
+<h3>Projekty</h3>
+<p *ngIf="message.isPresent()" class="{{ message.type }}">{{ message }}</p>
+<input type="text" matInput [(ngModel)]="title" />
+<app-button i18n-text text="Dodaj" icon="add" (click)="onCreate()"></app-button>
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let board of boards">
+        <mat-card>
+        <mat-card-header>
+            <input type="text" matInput [(ngModel)]="board.title" />
+        </mat-card-header>
+        <mat-card-actions>
+            <app-button i18n-text text="Przejdź" icon="subdirectory_arrow_right" goto="column-page/{{board._id}}"></app-button>
+            <app-button i18n-text text="Aktualizuj" icon="mode_edit" (click)="onUpdate(board)"></app-button>
+            <app-button i18n-text text="Usuń" icon="clear" (click)="onDelete(board)"></app-button>
+        </mat-card-actions>
+        <mat-card-content>
+            <ul>
+                <li><ng-container i18n>ID projektu</ng-container> {{ board._id }}</li>
+                <li><ng-container i18n>Właściciel</ng-container> <select [(ngModel)]="board.owner">
+                    <option *ngFor="let user of users" [value]="user._id">{{ user.name }}</option>
+                </select></li>
+                <li><ng-container i18n>Współtwórcy</ng-container>: <select [(ngModel)]="board.user">
+                    <option *ngFor="let user of users" [value]="user._id">{{ user.name }}</option>
+                </select> <app-button i18n-text text="Dodaj" icon="add" (click)="onAddUser(board)"></app-button> </li>
+                <p style="padding: 0;" *ngFor="let user of board.users">{{ user?.name }}</p>
+            </ul>
+        </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

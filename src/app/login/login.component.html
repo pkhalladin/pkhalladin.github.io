@@ -1,0 +1,21 @@
+<div class="flex-container">
+    <span class="spacer"></span>
+    <div>
+        <h3 i18n>Zaloguj</h3>
+        <p *ngIf="message.isPresent()" class="{{ message.type }}">{{ message }}</p>
+        <form class="flex-column-container" (ngSubmit)="onSubmit()">
+            <span class="spacer"></span>
+            <mat-form-field>
+                <mat-label i18n>Login:</mat-label>
+                <input matInput name="login" [(ngModel)]="login" required />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label i18n>Hasło:</mat-label>
+                <input matInput name="password" type="password" [(ngModel)]="password" required />
+            </mat-form-field>
+            <div>
+                <button i18n color="primary" mat-raised-button>Zaloguj</button>
+            </div>
+        </form>
+    </div>
+</div>

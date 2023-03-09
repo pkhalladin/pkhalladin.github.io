@@ -1,0 +1,26 @@
+{
+  "locale": "en-US",
+  "translations": {
+    "6286620917447099837": "Add",
+    "2396468306593676106": "Go to",
+    "8413712532642473801": "Update",
+    "1467508388583350055": "Delete",
+    "5600791589201843432": "Project ID",
+    "7037048818361251657": "Owner",
+    "200886303561393350": "Collaborators",
+    "8712383364327675098": "Projects",
+    "3283036290609449270": "Add task",
+    "8748498125405273642": "Logout ({$INTERPOLATION})",
+    "6327707404016234082": "Login",
+    "2100673911933195115": "Register",
+    "9176569562112102455": "Login:",
+    "2268906621763988688": "Password:",
+    "8239821274785724496": "Thank you for using our application!",
+    "5311978395453896507": "First name:",
+    "1893073567041306308": "Welocome to our application!",
+    "4624556579672550791": "Our application is a simple but effective way to manage IT projects. With our Angular-based user interface, you'll be able to easily create projects, add tasks, monitor progress, and manage your project team.",
+    "2205400225888451069": "Regardless of whether you are working on a small individual project or a larger team project, our application is able to meet your requirements. Our tools and features will help you keep your project on track, regardless of its size or complexity.",
+    "7970580223010576361": "All project data is stored securely and is only accessible to authorized users. This way you can be sure that your information is safe and confidential.",
+    "2685430916143395004": "Give us a chance to help you manage your IT projects. Sign up today and start using our app!"
+  }
+}

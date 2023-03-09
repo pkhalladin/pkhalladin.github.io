@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <button mat-button (click)="onHomeClick()">ProjectManager 1.0</button>
+    <span class="header-spacer"></span>
+    <div *ngIf="auth.isLoggedIn(); then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <app-button i18n-text text="Projekty" icon="dataset" goto="board-page"></app-button>
+        <app-button i18n-text text="Wyloguj ({{ auth.getLogin() }})" icon="logout" goto="logout"></app-button>
+    </ng-template>
+    <ng-template #elseBlock>
+        <app-button i18n-text text="Zaloguj" icon="login" goto="login"></app-button>
+        <app-button i18n-text text="Zarejestruj" icon="person_add" goto="register"></app-button>
+    </ng-template>
+
+</mat-toolbar>
